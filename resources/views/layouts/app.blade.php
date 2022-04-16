@@ -14,24 +14,34 @@
     <a href="" class="p-3">Home</a>
    </li>
    <li>
-    <a href="" class="p-3">Dashborad</a>
+    <a href="{{ route('dashboard') }}" class="p-3">Dashborad</a>
    </li>
    <li>
     <a href="" class="p-3">Post</a>
    </li>
   </ul>
 
-
+  
   <ul class="flex items-center">
-   <li>
-    <a href="" class="p-3">oussama ennadafy</a>
-   </li>
-   <li>
-    <a href="" class="p-3">Login</a>
-   </li>
-   <li>
-    <a href="{{ route('register') }}" class="p-3">Register</a>
-   </li>
+    @auth
+    <li>
+     <a href="" class="p-3">oussama ennadafy</a>
+    </li>
+    <li>
+      <form action="{{ route('logout') }}" method='post' class="inline p-3">
+        @csrf
+        <button>log out</button>
+      </form>
+    </li>
+    @endauth
+    @guest
+    <li>
+     <a href="{{ route('login') }}" class="p-3">Login</a>
+    </li>
+    <li>
+     <a href="{{ route('register') }}" class="p-3">Register</a>
+    </li> 
+    @endguest
   </ul>
  </nav>
   @yield('content')
