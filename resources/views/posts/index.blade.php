@@ -35,7 +35,7 @@
           @csrf
           <button type="submit" class="text-blue-500" > Dislike </button>
         </form>
-        <span>{{$posts->like->count() }}</span>
+        <span>{{$post->likes->count()}} {{ Str::plural('like', $post->likes->count()) }}</span>
       </div>
 
 
