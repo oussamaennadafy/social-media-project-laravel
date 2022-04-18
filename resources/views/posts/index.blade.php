@@ -8,7 +8,7 @@
    <div class="mb-4">
     <label for="body" class="sr-only">body</label>
     <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg outline-none resize-none @error('body')
-    border-red-500 @enderror" placeholder="how do you feel"></textarea>
+    border-red-500 @enderror" placeholder="ask any question...  "></textarea>
     @error('body')
         <div class="text-red-500 mt-2 text-sm">
          {{ $message }}
@@ -26,15 +26,33 @@
       <a href="" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
       <p class="mb-2">{{$post->body}}</p>
 
+      <div>
+        <form action="{{ route('posts.destroy',$post) }}" method="post">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="text-blue-500" > Delete </button>
+        </form>
+      </div>
+
       <div class="flex items-center">
-        <form action="" method="post" class="mr-1">
+        @auth
+        @if(!$post->likedBy(auth()->user()))
+        <form action="{{ route('posts.likes', $post->id) }}" method="post" class="mr-1">
           @csrf
           <button type="submit" class="text-blue-500" > Like </button>
         </form>
-        <form action="" method="post" class="mr-1">
+        @else
+        <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
           @csrf
+          @method('DELETE')
           <button type="submit" class="text-blue-500" > Dislike </button>
         </form>
+        @endif
+
+
+
+
+        @endauth
         <span>{{$post->likes->count()}} {{ Str::plural('like', $post->likes->count()) }}</span>
       </div>
 
