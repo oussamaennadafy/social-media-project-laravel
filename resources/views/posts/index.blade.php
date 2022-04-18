@@ -23,7 +23,7 @@
    @if ($posts->count())
      @foreach ($posts as $post)
      <div class="mb-4">
-      <a href="" class=" font-medium">oussama {{ $post->user }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
+      <a href="" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
       <p class="mb-2">{{$post->body}}</p>
 
       <div class="flex items-center">
@@ -35,6 +35,7 @@
           @csrf
           <button type="submit" class="text-blue-500" > Dislike </button>
         </form>
+        <span>{{$posts->like->count() }}</span>
       </div>
 
 
