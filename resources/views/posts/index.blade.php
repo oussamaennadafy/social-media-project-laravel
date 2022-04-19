@@ -27,7 +27,7 @@
       <p class="mb-2">{{$post->body}}</p>
 
       <div>
-        <form action="{{ route('posts.destroy',$post) }}" method="post">
+        <form action="{{ route('posts.destroy',$post) }}">
           @csrf
           @method('DELETE')
           <button type="submit" class="text-blue-500" > Delete </button>
@@ -42,7 +42,7 @@
           <button type="submit" class="text-blue-500" > Like </button>
         </form>
         @else
-        <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
+        <form action="{{ route('posts.likes', $post) }}" class="mr-1">
           @csrf
           @method('DELETE')
           <button type="submit" class="text-blue-500" > Dislike </button>
