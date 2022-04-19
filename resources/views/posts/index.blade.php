@@ -23,16 +23,18 @@
    @if ($posts->count())
      @foreach ($posts as $post)
      <div class="mb-4">
-      <a href="" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
+      <a href="{{route('user.posts', $post->user)}}" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
       <p class="mb-2">{{$post->body}}</p>
 
-      <div>
-        <form action="{{ route('posts.destroy',$post) }}">
+
+
+      @can('delete', $post)
+        <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
           @csrf
-          @method('DELETE')
           <button type="submit" class="text-blue-500" > Delete </button>
         </form>
-      </div>
+      @endcan
+
 
       <div class="flex items-center">
         @auth
@@ -42,9 +44,8 @@
           <button type="submit" class="text-blue-500" > Like </button>
         </form>
         @else
-        <form action="{{ route('posts.likes', $post) }}" class="mr-1">
+        <form action="{{ route('posts.notlikes', $post->id) }}" class="mr-1" method="post">
           @csrf
-          @method('DELETE')
           <button type="submit" class="text-blue-500" > Dislike </button>
         </form>
         @endif
