@@ -9,6 +9,5 @@ class UserPostController extends Controller
 {
     public function index(User $user) {
         dd($user);
-        echo "e";
     }
 }
