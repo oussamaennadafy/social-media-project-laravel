@@ -14,7 +14,7 @@ class PostController extends Controller
             'posts' => $posts
         ]);
     }
-
+ 
     public function store(Request $request) {
 
         $this->validate($request, [
