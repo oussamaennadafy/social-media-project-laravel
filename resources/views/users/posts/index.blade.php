@@ -3,7 +3,13 @@
 @section('content')
     <div class="flex justify-center">
      <div class="w-8/12 bg-white p-6 rounded-lg">
-      {{ $user->name }}
+      @if ($posts->count())
+      @foreach ($posts as $post)
+       <x-post :post="$post" />
+      @endforeach
+      @else
+      there is no posts
+      @endif
      </div>
     </div>
 @endsection
