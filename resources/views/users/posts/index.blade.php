@@ -5,11 +5,11 @@
      <div class="w-8/12 bg-white p-6 rounded-lg">
       @if ($posts->count())
       @foreach ($posts as $post)
-       <x-post :post="$post" />
-      @endforeach
-      @else
-      there is no posts
-      @endif
+        <x-post :post='$post' />
+       @endforeach
+       @else
+       <p>{{ $user->name}} does not have any posts</p>
+       @endif
      </div>
     </div>
 @endsection
