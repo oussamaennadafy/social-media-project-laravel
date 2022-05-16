@@ -23,7 +23,7 @@
    @if ($posts->count())
      @foreach ($posts as $post)
      <div class="mb-4">
-      <a href="{{route('user.posts', $post->user)}}" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
+      <a href="{{route('users.posts', $post->user)}}" class=" font-medium">{{ $post->user->name }} </a> <span class="text-sm font-light text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
       <p class="mb-2">{{$post->body}}</p>
 
 
