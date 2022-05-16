@@ -28,8 +28,8 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts');
-Route::post('/posts', [PostController::class, 'store']); 
+Route::get('/all-posts', [PostController::class, 'index']);
+Route::post('/posts', [PostController::class, 'store'])->name('posts.form'); 
 Route::post('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy'); 
 
 Route::post('/posts/{post:id}/likes', [PostLikeController::class, 'store'])->name('posts.likes');

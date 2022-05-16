@@ -9,10 +9,7 @@ class PostController extends Controller
 {
     public function index() {
         $posts = Post::latest()->with(['user', 'likes'])->get();
-
-        return view('posts.index', [ 
-            'posts' => $posts
-        ]);
+        return view('posts.index',compact('posts'));
     }
  
     public function store(Request $request) {
