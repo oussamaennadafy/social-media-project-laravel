@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class UserPostController extends Controller
 {
     public function index(User $user) {
-        view($user);
+        return view('users.posts.index', [
+            'user' => $user,
+        ]);
     }
 }
