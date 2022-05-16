@@ -5,7 +5,7 @@
      <div class="w-8/12">
 
       
-      <div class="p-6 bg-gray-100 rounded-lg mb-4 w-fit">
+      <div class="p-6 bg-gray-100 rounded-lg mb-4 w-8/12">
       <h1 class="text-2xl font-medium mb-1">{{ $user->name }}</h1>
       <p>Posted {{ $posts->count() }} {{ Str::plural('post', $posts->count()) }}</p>
      </div>
@@ -17,6 +17,7 @@
        @if ($posts->count())
        @foreach ($posts as $post)
        <x-post :post='$post' />
+       <hr class="mx-6 my-4">
        @endforeach
         @else
         <p>{{ $user->name}} does not have any posts</p>
