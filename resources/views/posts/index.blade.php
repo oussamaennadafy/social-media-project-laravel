@@ -2,12 +2,12 @@
 
 @section('content')
  <div class="flex justify-center">
-  <div class="w-8/12 bg-white p-6 rounded-lg">
+  <div class="w-8/12 bg-white p-6 rounded-lg mb-10">
    <form action="{{route('posts.form')}}" method="POST" class="mb-4">
     @csrf
    <div class="mb-4">
     <label for="body" class="sr-only">body</label>
-    <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-50 border-2 w-full p-4 rounded-lg outline-none resize-none @error('body')
+    <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-50 border w-full p-4 rounded-lg outline-none resize-none @error('body')
     border-red-500 @enderror" placeholder="ask any question...  "></textarea>
     @error('body')
         <div class="text-red-500 mt-2 text-sm">
