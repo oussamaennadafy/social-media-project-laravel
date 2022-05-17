@@ -18,11 +18,7 @@
        @if ($posts->count())
        @foreach ($posts as $post)
        <x-post :post='$post' />
-
-       @if ($posts->count() - ) 
        <hr class="mx-6 my-4">
-       @endif
-
        @endforeach
         @else
         <p>{{ $user->name}} does not have any posts</p>

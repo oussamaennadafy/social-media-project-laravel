@@ -7,7 +7,7 @@
     @csrf
    <div class="mb-4">
     <label for="body" class="sr-only">body</label>
-    <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg outline-none resize-none @error('body')
+    <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-50 border-2 w-full p-4 rounded-lg outline-none resize-none @error('body')
     border-red-500 @enderror" placeholder="ask any question...  "></textarea>
     @error('body')
         <div class="text-red-500 mt-2 text-sm">
@@ -22,7 +22,7 @@
    </form>
       @if ($posts->count())
       @foreach ($posts as $post)
-      <div class="border-2 border-gray-200 p-6 mb-3 rounded-lg">
+      <div class="border-2 border-gray-100 bg-gray-50 p-6 mb-3 rounded-lg">
         <x-post :post='$post' />
       </div>
        @endforeach
