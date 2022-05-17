@@ -22,7 +22,7 @@
    </form>
       @if ($posts->count())
       @foreach ($posts as $post)
-      <div class="border border-gray-200 p-6 mb-3 rounded-lg">
+      <div class="border-2 border-gray-200 p-6 mb-3 rounded-lg">
         <x-post :post='$post' />
       </div>
        @endforeach
